@@ -1,0 +1,35 @@
+﻿@using static VendingMachineContext
+@model Product
+
+@{
+    ViewData["Title"] = "Purchase Product";
+}
+
+<h2>Purchase Product</h2>
+
+<h4>Product</h4>
+<hr />
+<dl class="row">
+    <dt class="col-sm-2">ID</dt>
+    <dd class="col-sm-10">@Model.ID</dd>
+
+    <dt class="col-sm-2">Name</dt>
+    <dd class="col-sm-10">@Model.Name</dd>
+
+    <dt class="col-sm-2">Price</dt>
+    <dd class="col-sm-10">@Model.Price.ToString("C")</dd>
+
+    <dt class="col-sm-2">Quantity Available</dt>
+    <dd class="col-sm-10">@Model.QuantityAvailable</dd>
+</dl>
+
+<form asp-action="Purchase" method="post">
+    <input type="hidden" asp-for="ID" />
+    <div class="form-group">
+        <input type="submit" value="Purchase" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
